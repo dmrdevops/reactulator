@@ -1,8 +1,10 @@
 name: Build and deploy React app
 on:
+  workflow_dispatch:
   push:
     branches: 
       -main
+    
 jobs:
   build:
     name: Build
