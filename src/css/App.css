@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron&display=swap');
+
+html {
+  font-size: 10px;
+  width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(174,195,238);
+  background: radial-gradient(circle, rgba(174,195,238,1) 32%, rgba(40,86,108,1) 100%);
+}
+
+.calculator {
+  width: 550px;
+  height: min-content;
+  padding: 1.5em;
+  display: grid;
+  grid: [row1-start] "logo logo" .75fr [row1-end]
+        [row2-start] "display display" auto [row2-end]
+        [row3-start] "controls operators" .75fr [row3-end]
+        [row4-s1tart] "numpad operators" 3fr [row4-end]
+        / 3fr 1fr;
+  border-radius: 2rem;
+  background-color: #22232a;
+}
+
+#decoration {
+  font-family: 'Monoton', cursive;
+  font-size: 4.75em;
+  grid-area: logo;
+  margin: 0 0 0 2rem;
+  color: #16dafb;
+  display: flex;
+  align-items: center;
+} 
+
+#input-display {
+  min-height: 120px;
+  border: 2px black solid;
+  background-color: rgb(32, 204, 104);
+  font-size: 4rem;
+  font-family: 'Orbitron', sans-serif;
+  text-align: right;
+  margin: .1em .3em;
+  padding: .1em .2em;
+  grid-area: display;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  flex: 1 0;
+  word-break: break-all;
+}
+
+
+
+button {
+  flex: 1 0 auto;
+  border-radius: 10px;
+  font-size: 2.2em;
+}
+
+.container-controls {
+  min-height: 75px;
+  grid-area: controls;
+  margin: 0 -5px;
+  padding: 1em;
+  display: flex;
+  flex: 1 0 auto
+}
+
+.container-controls button { margin: 0 3.5px; }
+
+.numpad {
+  min-height: 350px;
+  padding: .75em;
+  grid-area: numpad;
+  display: grid;
+  grid: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr ;
+  gap: .75em;
+  direction: rtl;
+}
+
+#zero {
+  grid-row-start: 4;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.container-operators {
+  
+  grid-area: operators;
+  display: flex;
+  flex-direction: column;
+  padding: 1em .75em .75em .75em;
+  margin: -3.5px 0 -3.5px;
+}
+
+.container-operators button { margin: 3.5px 0; }
+
+.container-credits {
+  display: flex;
+  align-items: center;
+  margin: 2em;
+}
+
+.container-credits a {
+  width: 7.5em;
+  display: flex;
+  align-items: center;
+}
+
+.container-credits p {
+  font-size: 2.2em;
+  margin: 0 .5em 0 0;
+}
+
+#logo { width: 100%; }
