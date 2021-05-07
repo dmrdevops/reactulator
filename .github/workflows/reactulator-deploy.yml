@@ -33,4 +33,5 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         rm: true
         source: "./build/*"
-        target: "${{ secrets.REMOTE_DIR }}reactulator/"
+        target: "${{ secrets.REMOTE_DIR }}reactulator"
+        strip_components: 1
