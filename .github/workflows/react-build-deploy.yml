@@ -1,0 +1,41 @@
+name: Build and deploy React app
+on:
+  push:
+    branches: 
+      -main
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        
+    - name: Install NPM Packages
+      run: npm ci
+     
+    - name: Build project
+      run: npm run build
+  
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Copying files to server
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        rm: true
+        source: "."
+        target: "${{ secrets.REMOTE_DIR }}reactulator"
