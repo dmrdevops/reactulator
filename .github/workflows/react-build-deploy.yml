@@ -40,4 +40,4 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         rm: true
         source: "."
-        target: "${{ secrets.REMOTE_DIR }}reactulator"
+        target: "~/reactulator"
